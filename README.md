@@ -42,6 +42,40 @@ npm start
 
 The server will start on port 5000 by default. You can change this in the `.env` file.
 
+### Setting Up Shopify Webhooks
+
+To enable real-time product updates, you need to set up three webhooks in your Shopify admin:
+
+1. Go to your Shopify admin panel
+2. Navigate to Settings > Notifications > Webhooks
+3. Click "Create webhook"
+4. Create the following three webhooks:
+
+   a. **Product Creation**
+   - Event: Product creation
+   - Format: JSON
+   - URL: `https://your-domain.com/webhooks/products/create`
+   - Webhook API version: 2024-01
+
+   b. **Product Update**
+   - Event: Product update
+   - Format: JSON
+   - URL: `https://your-domain.com/webhooks/products/update`
+   - Webhook API version: 2024-01
+
+   c. **Product Deletion**
+   - Event: Product deletion
+   - Format: JSON
+   - URL: `https://your-domain.com/webhooks/products/delete`
+   - Webhook API version: 2024-01
+
+5. For each webhook, make sure to:
+   - Copy the webhook secret
+   - Add it to your `.env` file as `SHOPIFY_WEBHOOK_SECRET`
+   - Ensure your server is accessible at the webhook URLs
+
+Note: If you're testing locally, you'll need to use a service like ngrok to expose your local server to the internet.
+
 ## Cloud Run Deployment
 
 ### Prerequisites
