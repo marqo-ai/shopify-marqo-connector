@@ -69,8 +69,8 @@ To enable real-time product updates, you need to set up three webhooks in your S
    - URL: `https://your-domain.com/webhooks/products/delete`
    - Webhook API version: 2024-01
 
-5. For each webhook, make sure to:
-   - Copy the webhook secret
+5. Set the webhook secret
+   - For one of the webhooks, copy the webhook secret
    - Add it to your `.env` file as `SHOPIFY_WEBHOOK_SECRET`
    - Ensure your server is accessible at the webhook URLs
 
